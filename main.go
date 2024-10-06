@@ -11,7 +11,7 @@ func main() {
 	r := mux.NewRouter()
 	r.Use(middlewares.CorsMiddlewares)
 	r.PathPrefix("/customer").Handler(middlewares.ReverseProxy("http://localhost:8081"))
-	r.PathPrefix("/access").Handler(middlewares.ReverseProxy("http://localhost:8081"))
+	r.PathPrefix("/access").Handler(middlewares.ReverseProxy("http://localhost:8082"))
 	r.PathPrefix("/admin").Handler(middlewares.ReverseProxy("http://localhost:8083"))
 	log.Fatal(http.ListenAndServe(":8080", r))
 }

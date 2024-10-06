@@ -14,10 +14,10 @@ func CorsMiddlewares(next http.Handler) http.Handler{
 
 		for _, origns := range allowedOrigins {
 			if origin == origns {
-				w.Header().Set("Control-Access-Allow-Origin", origns)
-				w.Header().Set("Control-Access-Allow-Methods", "POST, GET, PUT, UPDATE, DELETE, OPTIONS")
-				w.Header().Set("Control-Access-Allow-Header", "X-Requested-With, Content-Type, Authorization")
-				w.Header().Set("Control-Access-Allow-Credentials", "true")
+				w.Header().Set("Access-Control-Allow-Origin", origns)
+				w.Header().Set("Access-Control-Allow-Methods", "POST, GET, PUT, PATCH, DELETE, OPTIONS")
+				w.Header().Set("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, Authorization")
+				w.Header().Set("Access-Control-Allow-Credentials", "true")
 			}
 		}
 

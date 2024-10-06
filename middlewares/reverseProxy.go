@@ -6,7 +6,7 @@ import (
 	"net/http/httputil"
 	"net/url"
 	"strings"
-	"golang.org/x/net/http2"
+	// "golang.org/x/net/http2"
 	"github.com/RaihanMalay21/api-gateway-tb-berkah-jaya-development/helper"
 )
 
@@ -27,8 +27,9 @@ func ReverseProxy(target string) http.Handler {
 
 		proxy := httputil.NewSingleHostReverseProxy(url)
 
+		// using when production
 		// Set Custom Transport To Support HTTP/2
-		proxy.Transport = &http2.Transport{}
+		// proxy.Transport = &http2.Transport{}
 
 		pathMicroservices := []string{
 			"http://localhost:8081",
